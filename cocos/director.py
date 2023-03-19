@@ -539,7 +539,7 @@ class Director(event.EventDispatcher):
         """
         # this method will be replaced by _get_window_size_autoscale or
         # _get_window_size_no_autoscale when director.init(...) is called
-        raise NotImplemented
+        raise NotImplementedError
 
     def _get_window_size_autoscale(self):
         return self._window_virtual_width, self._window_virtual_height
@@ -549,7 +549,7 @@ class Director(event.EventDispatcher):
 
     def get_virtual_coordinates(self, x, y):
         "placeholder, will be replaced"
-        raise NotImplemented
+        raise NotImplementedError
 
     def get_virtual_coordinates_autoscale(self, x, y):
         """Transforms coordinates that belongs the *real* window size, to the
