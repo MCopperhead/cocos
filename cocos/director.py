@@ -650,6 +650,14 @@ class Director(event.EventDispatcher):
         self._usable_width = width
         self._usable_height = height
 
+        # are we on an HiDPI display?
+        if hasattr(self.window, 'get_viewport_size'):
+            viewportw, viewporth = self.window.get_viewport_size()
+            if viewportw > width:
+                # yes
+                self._usable_width = viewportw
+                self._usable_height = viewporth
+
         if self._resize_no_events:
             # setting viewport geometry, not handling an event
             return
